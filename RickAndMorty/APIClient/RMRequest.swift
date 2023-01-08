@@ -111,3 +111,24 @@ extension RMRequest {
     static let listEpisodesRequest = RMRequest(endpoint: .episode)
     static let listLocationsRequest = RMRequest(endpoint: .location)
 }
+
+/*
+RMRequest é uma classe final em Swift que representa uma solicitação HTTP. Ela possui uma estrutura 
+aninhada chamada Constants que possui uma propriedade de classe estática chamada "baseUrl", que é 
+usada como base para a URL da solicitação.
+
+A classe possui um inicializador designado que permite criar uma instância da classe passando 
+um objeto do tipo RMEndpoint, que é um tipo enum que representa o endpoint da API, um array de strings 
+opcional com os componentes de caminho da URL, e um array de objetos do tipo URLQueryItem opcional 
+com os parâmetros de consulta da URL. A classe também possui um inicializador de conveniência que 
+permite criar uma instância da classe a partir de uma URL, desmembrando-a em seus componentes e construindo 
+um objeto do tipo RMRequest com base nesses componentes.
+
+A classe possui uma propriedade de instância chamada "httpMethod" que é sempre iniciada como "GET". 
+Ela também possui uma propriedade de instância chamada "url" que é uma URL opcional que é construída 
+com base na propriedade "endpoint", os componentes de caminho e os parâmetros de consulta.
+
+A classe possui uma extensão que possui três propriedades estáticas, cada uma delas é uma instância da 
+classe RMRequest com diferentes combinações de endpoint e parâmetros de consulta. Essas propriedades são 
+usadas para criar solicitações específicas para cada endpoint da API.
+*/

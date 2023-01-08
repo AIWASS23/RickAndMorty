@@ -20,11 +20,6 @@ final class RMService {
         case failedToGetData
     }
 
-    /// Send Rick and Morty API Call
-    /// - Parameters:
-    ///   - request: Request instance
-    ///   - type: The type of object we expect to get back
-    ///   - completion: Callback with data or error
     public func execute<T: Codable>(
         _ request: RMRequest,
         expecting type: T.Type,
@@ -76,3 +71,24 @@ final class RMService {
         return request
     }
 }
+
+/*
+    RMService é uma classe final em Swift que representa um serviço para fazer solicitações HTTP. 
+    Ela possui uma única instância compartilhada, que é acessível através da propriedade estática "shared".
+
+    A classe possui um inicializador privado que garante que ela não possa ser instanciada diretamente. 
+    Em vez disso, a única maneira de acessar o serviço é através da propriedade "shared". A classe também 
+    possui um enum aninhado chamado RMServiceError que define dois casos de erro que podem ser lançados 
+    pelo serviço.
+
+    A classe possui uma função "execute" que aceita um objeto do tipo RMRequest, um tipo genérico que deve 
+    implementar o protocolo Codable e uma closure que é chamada com um resultado do tipo Result. A função 
+    tenta recuperar os dados armazenados em cache para a solicitação especificada usando a propriedade 
+    "cacheManager", que é uma instância da classe RMAPICacheManager. Se os dados forem encontrados em 
+    cache, eles são decodificados usando o JSONDecoder e o resultado é passado para a closure de conclusão.
+
+    Se os dados não forem encontrados em cache, a função cria uma solicitação URL a partir do objeto 
+    RMRequest e a envia usando a sessão padrão de URL. Quando os dados são recebidos, eles são decodificados 
+    e armazenados em cache usando o RMAPICacheManager. O resultado é então passado para a closure de 
+    conclusão.
+*/
