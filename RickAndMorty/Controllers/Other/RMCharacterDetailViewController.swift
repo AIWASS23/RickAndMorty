@@ -8,11 +8,9 @@
 import UIKit
 
 final class RMCharacterDetailViewController: UIViewController {
+
     private let viewModel: RMCharacterDetailViewViewModel
-
     private let detailView: RMCharacterDetailView
-
-    // MARK: - Init
 
     init(viewModel: RMCharacterDetailViewViewModel) {
         self.viewModel = viewModel
@@ -23,8 +21,6 @@ final class RMCharacterDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
-
-    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +40,6 @@ final class RMCharacterDetailViewController: UIViewController {
 
     @objc
     private func didTapShare() {
-        // Share character info
     }
 
     private func addConstraints() {
@@ -56,8 +51,6 @@ final class RMCharacterDetailViewController: UIViewController {
         ])
     }
 }
-
-// MARK: - CollectionView
 
 extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -124,3 +117,32 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
     }
 }
 
+/*
+    RMCharacterDetailViewController que herda de UIViewController. Essa classe é usada para exibir detalhes 
+    de um personagem específico de uma série de televisão ou quadrinhos. A classe tem uma propriedade 
+    privada chamada viewModel que é um RMCharacterDetailViewViewModel e uma propriedade privada chamada 
+    detailView que é uma instância de RMCharacterDetailView.
+
+    A classe implementa os protocolos UICollectionViewDelegate e UICollectionViewDataSource para 
+    fornecer os dados e configurar a apresentação de células em uma coleção de visualização que é exibida 
+    na tela.
+
+    O método viewDidLoad é chamado quando a view do controlador é carregada pela primeira vez. Ele 
+    configura a cor de fundo da view, define o título da view como o título do personagem, adiciona a 
+    detailView à view do controlador e adiciona um botão de compartilhamento à barra de navegação. 
+    Também chama o método addConstraints para adicionar restrições de layout à detailView e configura a 
+    coleção de visualização para usar o RMCharacterDetailViewController como seu delegado e fonte de dados.
+
+    O método didTapShare é chamado quando o botão de compartilhamento é tocado pelo usuário. Atualmente, 
+    ele não faz nada, mas pode ser usado para compartilhar informações sobre o personagem com outras pessoas.
+
+    O método addConstraints adiciona restrições de layout à detailView para que ela preencha toda a área 
+    segura da view do controlador.
+
+    Os métodos numberOfSections, numberOfItemsInSection e cellForItemAt são implementações do protocolo 
+    UICollectionViewDataSource e são usados para fornecer os dados e configurar a apresentação de células 
+    na coleção de visualização. O método didSelectItemAt é uma implementação do protocolo 
+    UICollectionViewDelegate e é chamado quando o usuário toca em uma célula da coleção de visualização. 
+    Ele abre um controlador de visualização de detalhes para um episódio específico se a seção selecionada 
+    for de episódios.
+*/

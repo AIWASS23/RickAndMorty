@@ -8,11 +8,9 @@
 import UIKit
 
 final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate, RMEpisodeDetailViewDelegate {
+
     private let viewModel: RMEpisodeDetailViewViewModel
-
     private let detailView = RMEpisodeDetailView()
-
-    // MARK: - Init
 
     init(url: URL?) {
         self.viewModel = RMEpisodeDetailViewViewModel(endpointUrl: url)
@@ -22,8 +20,6 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
     required init?(coder: NSCoder) {
         fatalError()
     }
-
-    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +47,6 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
 
     }
 
-    // MARK: - View Delegate
-
     func rmEpisodeDetailView(
         _ detailView: RMEpisodeDetailView,
         didSelect character: RMCharacter
@@ -63,9 +57,18 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    // MARK: - ViewModel Delegate
-
     func didFetchEpisodeDetails() {
         detailView.configure(with: viewModel)
     }
 }
+
+/*
+    Esse script define uma classe de visualização de detalhes de episódios de algum tipo de série. 
+    A classe possui uma visualização de detalhes de episódios (detailView) e um modelo de visualização de 
+    detalhes de episódios (viewModel). A classe também implementa dois protocolos: 
+    RMEpisodeDetailViewViewModelDelegate e RMEpisodeDetailViewDelegate. A classe possui uma ação de 
+    compartilhamento (didTapShare) e uma ação de seleção de personagem (didSelect character). Quando a 
+    visualização é carregada, ela configura a detailView com o viewModel e faz uma solicitação para buscar o
+    s detalhes do episódio. Quando os detalhes do episódio são recebidos, a função didFetchEpisodeDetails 
+    é chamada e configura a detailView com o viewModel.
+*/

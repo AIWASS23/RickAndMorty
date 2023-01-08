@@ -40,8 +40,6 @@ final class RMSearchViewController: UIViewController {
     private let viewModel: RMSearchViewViewModel
     private let searchView: RMSearchView
 
-    // MARK: - Init
-
     init(config: Config) {
         let viewModel = RMSearchViewViewModel(config: config)
         self.viewModel = viewModel
@@ -52,8 +50,6 @@ final class RMSearchViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
-
-    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +86,6 @@ final class RMSearchViewController: UIViewController {
     }
 }
 
-// MARK: - RMSearchViewDelegate
-
 extension RMSearchViewController: RMSearchViewDelegate {
     func rmSearchView(_ searchView: RMSearchView, didSelectOption option: RMSearchInputViewViewModel.DynamicOption) {
         let vc = RMSearchOptionPickerViewController(option: option) { [weak self] selection in
@@ -104,3 +98,23 @@ extension RMSearchViewController: RMSearchViewDelegate {
         present(vc, animated: true)
     }
 }
+
+/*
+    A classe RMSearchViewController possui uma estrutura aninhada chamada Config que define um tipo 
+    enumerado chamado Tipos. Cada caso desse tipo enumerado corresponde a um dos três tipos de busca 
+    possíveis: "personagem", "episódio" ou "local". A classe RMSearchViewController também possui uma 
+    propriedade chamada viewModel, que é uma instância de uma classe chamada RMSearchViewViewModel, e uma 
+    propriedade chamada searchView, que é uma instância de uma classe chamada RMSearchView.
+
+    A classe RMSearchViewController tem um inicializador que aceita um parâmetro de configuração do tipo 
+    Config, que é usado para inicializar a propriedade viewModel e a propriedade searchView. A classe 
+    também tem uma função chamada viewDidLoad, que é executada quando a visualização é carregada pela 
+    primeira vez. Nessa função, o título da visualização é definido com base no tipo de busca especificado 
+    na configuração, e a visualização é adicionada à hierarquia de visualização da classe. Além disso, 
+    um botão de "pesquisa" é adicionado à barra de navegação e o delegate da propriedade searchView é 
+    definido como a própria classe RMSearchViewController.
+
+    A classe RMSearchViewController também implementa o protocolo RMSearchViewDelegate, que possui uma 
+    função chamada rmSearchView(_:didSelectOption:). Essa função é chamada quando uma opção é selecionada 
+    na visualização de pesquisa. Quando isso acontece, uma nova visualização é criada e exibida modalmente.
+*/

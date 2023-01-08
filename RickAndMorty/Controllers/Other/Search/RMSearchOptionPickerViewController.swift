@@ -8,6 +8,7 @@
 import UIKit
 
 final class RMSearchOptionPickerViewController: UIViewController {
+
     private let option: RMSearchInputViewViewModel.DynamicOption
     private let selectionBlock: ((String) -> Void)
 
@@ -19,8 +20,6 @@ final class RMSearchOptionPickerViewController: UIViewController {
         return table
     }()
 
-    // MARK: - Init
-
     init(option: RMSearchInputViewViewModel.DynamicOption, selection: @escaping (String) -> Void) {
         self.option = option
         self.selectionBlock = selection
@@ -30,8 +29,6 @@ final class RMSearchOptionPickerViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
-    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,3 +70,12 @@ extension RMSearchOptionPickerViewController: UITableViewDelegate, UITableViewDa
     }
 }
 
+/*
+    Este script define uma classe chamada RMSearchOptionPickerViewController, que é um controlador de 
+    visualização do iOS. Ele é usado para exibir uma lista de opções para o usuário escolher. Quando o 
+    usuário seleciona uma opção, um bloco de seleção é chamado e a opção selecionada é passada a ele. 
+    A lista de opções é fornecida através de um objeto RMSearchInputViewViewModel.DynamicOption que é 
+    passado para o controlador na inicialização. O controlador usa uma tableView para exibir as opções 
+    para o usuário. Quando o usuário seleciona uma opção, a tableView chama o método de seleção fornecido 
+    no bloco de seleção e, em seguida, o controlador é fechado.
+*/
