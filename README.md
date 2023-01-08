@@ -10,17 +10,19 @@
 
 ## 🖇️ Colaborando
 
-Veja o arquivo [CONTRIBUTING.md](https://github.com/AIWASS23/ML/blob/main/CONTRIBUTING.md) para detalhes.
+Veja o arquivo [CONTRIBUTING.md](https://github.com/AIWASS23/RickAndMorty/blob/main/CONTRIBUTING.md) para detalhes.
 
-## 🔍 Material
+## 🔒 Código de Conduta
 
-Veja o arquivo [TUTORIAIS.md](https://github.com/AIWASS23/ML/blob/main/TUTORIAIS.md) para detalhes.
+Veja o arquivo [CODE_OF_CONDUCT.md](https://github.com/AIWASS23/RickAndMorty/blob/main/CODE_OF_CONDUCT.md) para detalhes.
 
 ## 📌 Versão
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.1     | :white_check_mark: |
+| 1.0     | :white_check_mark: |
+
+Veja o arquivo [SECURITY.md](https://github.com/AIWASS23/RickAndMorty/blob/main/SECURITY.md) para detalhes.
 
 ## ✒️ Autores
 
