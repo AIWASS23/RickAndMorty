@@ -58,8 +58,6 @@ final class RMCharacterDetailViewViewModel {
         character.name.uppercased()
     }
 
-    // MARK: - Layouts
-
     public func createPhotoSectionLayout() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
