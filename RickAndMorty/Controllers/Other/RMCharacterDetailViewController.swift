@@ -69,7 +69,9 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let sectionType = viewModel.sections[indexPath.section]
         switch sectionType {
         case .photo(let viewModel):

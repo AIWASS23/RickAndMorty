@@ -12,8 +12,6 @@ final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
     private let characterStatus: RMCharacterStatus
     private let characterImageUrl: URL?
 
-    // MARK: - Init
-
     init(
         characterName: String,
         characterStatus: RMCharacterStatus,
@@ -29,7 +27,6 @@ final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
     }
 
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
-        // TODO: Abstract to Image Manager
         guard let url = characterImageUrl else {
             completion(.failure(URLError(.badURL)))
             return
@@ -39,7 +36,9 @@ final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
 
     // MARK: - Hashable
 
-    static func == (lhs: RMCharacterCollectionViewCellViewModel, rhs: RMCharacterCollectionViewCellViewModel) -> Bool {
+    static func == (
+        lhs: RMCharacterCollectionViewCellViewModel,
+        rhs: RMCharacterCollectionViewCellViewModel) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
 
