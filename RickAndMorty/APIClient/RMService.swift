@@ -5,12 +5,46 @@
 //  Created by Marcelo De Araújo on 07/01/23.
 //
 
+/*
+    Result é um tipo genérico em Swift que representa um resultado de uma operação que pode ter sucedido 
+    com sucesso ou falhado. Ele é definido da seguinte maneira:
+
+    enum Result<Success, Failure: Error> {
+        case success(Success)
+        case failure(Failure)
+    }
+
+    Ele é geralmente usado como um substituto para o uso de throws quando se deseja retornar um 
+    resultado de uma função ou método. Isso permite que o código que chama a função ou método possa 
+    manipular o sucesso ou a falha de maneira explícita, sem ter que lidar com o tratamento de exceções.
+
+    Aqui está um exemplo de como usar o Result para lidar com um método que pode falhar:
+
+    func fetchData(completion: (Result<Data, Error>) -> Void) {
+        // Faz algo que pode falhar e chama a closure de conclusão com um resultado
+        if success {
+            completion(.success(data))
+        } else {
+            completion(.failure(error))
+        }
+    }
+    Para manipular o resultado, você pode usar um switch:
+
+    fetchData { result in
+        switch result {
+        case .success(let data):
+            // Faz algo com os dados
+        case .failure(let error):
+            // Faz algo com o erro
+        }
+    }
+*/
+
 import Foundation
 
 final class RMService {
 
     static let shared = RMService()
-
     private let cacheManager = RMAPICacheManager()
 
     private init() {}
