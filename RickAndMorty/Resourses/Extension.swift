@@ -14,3 +14,10 @@ extension UIView {
         })
     }
 }
+
+/*
+    A extensão adiciona uma nova função à classe UIView chamada "addSubviews" 
+    que permite adicionar várias subviews ao mesmo tempo. A função é chamada passando 
+    uma lista de argumentos variáveis de tipo UIView. Cada elemento da lista é adicionado 
+    à view atual como uma subview usando a função addSubview().
+*/
