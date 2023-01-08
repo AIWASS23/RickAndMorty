@@ -34,3 +34,16 @@ final class RMImageLoader {
         task.resume()
     }
 }
+
+/*
+    RMImageLoader é uma classe final em Swift que faz o download de imagens a partir de URLs. Ela possui 
+    uma propriedade de instância chamada "imageDataCache" que é um objeto do tipo NSCache que é usado para 
+    armazenar em cache os dados de imagem baixados.
+
+    A classe possui uma única função pública chamada "downloadImage" que aceita uma URL e uma closure de 
+    conclusão como parâmetros. A função primeiro verifica se o dado da imagem está em cache usando o 
+    "imageDataCache" e, se estiver, chama a closure de conclusão com os dados em cache. Caso contrário, 
+    ela cria uma solicitação de URL e inicia uma tarefa de sessão de rede para fazer o download dos dados 
+    da imagem. Quando os dados são recebidos, eles são armazenados em cache e a closure de conclusão é 
+    chamada com os dados baixados.
+*/
