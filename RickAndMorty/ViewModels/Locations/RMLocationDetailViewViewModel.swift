@@ -29,8 +29,6 @@ final class RMLocationDetailViewViewModel {
 
     public private(set) var cellViewModels: [SectionType] = []
 
-    // MARK: - Init
-
     init(endpointUrl: URL?) {
         self.endpointUrl = endpointUrl
     }
@@ -41,8 +39,6 @@ final class RMLocationDetailViewViewModel {
         }
         return dataTuple.characters[index]
     }
-
-    // MARK: - Private
 
     private func createCellViewModels() {
         guard let dataTuple = dataTuple else {
@@ -74,7 +70,6 @@ final class RMLocationDetailViewViewModel {
         ]
     }
 
-    /// Fetch backing location model
     public func fetchLocationData() {
         guard let url = endpointUrl,
               let request = RMRequest(url: url) else {

@@ -38,8 +38,6 @@ final class RMEpisodeDetailView: UIView {
         return spinner
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -93,8 +91,6 @@ final class RMEpisodeDetailView: UIView {
                                 forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
         return collectionView
     }
-
-    // MARK: - Public
 
     public func configure(with viewModel: RMEpisodeDetailViewViewModel) {
         self.viewModel = viewModel

@@ -31,8 +31,6 @@ class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .tertiarySystemBackground
@@ -78,7 +76,6 @@ class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
 
     public func configure(with viewModel: RMCharacterEpisodeCollectionViewCellViewModel) {
         viewModel.registerForData { [weak self] data in
-            // Main Queue
             self?.nameLabel.text = data.name
             self?.seasonLabel.text = "Episode "+data.episode
             self?.airDateLabel.text = "Aired on "+data.airDate

@@ -14,7 +14,6 @@ protocol RMCharacterListViewViewModelDelegate: AnyObject {
     func didSelectCharacter(_ character: RMCharacter)
 }
 
-/// View Model to handle character list view logic
 final class RMCharacterListViewViewModel: NSObject {
 
     public weak var delegate: RMCharacterListViewViewModelDelegate?
@@ -40,7 +39,6 @@ final class RMCharacterListViewViewModel: NSObject {
 
     private var apiInfo: RMGetAllCharactersResponse.Info? = nil
 
-    /// Fetch initial set of characters (20)
     public func fetchCharacters() {
         RMService.shared.execute(
             .listCharactersRequests,
@@ -61,7 +59,6 @@ final class RMCharacterListViewViewModel: NSObject {
         }
     }
 
-    /// Paginate if additional characters are needed
     public func fetchAdditionalCharacters(url: URL) {
         guard !isLoadingMoreCharacters else {
             return
@@ -109,8 +106,6 @@ final class RMCharacterListViewViewModel: NSObject {
         return apiInfo?.next != nil
     }
 }
-
-// MARK: - CollectionView
 
 extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
@@ -167,7 +162,6 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollection
     }
 }
 
-// MARK: - ScrollView
 extension RMCharacterListViewViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard shouldShowLoadMoreIndicator,

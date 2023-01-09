@@ -14,7 +14,6 @@ protocol RMCharacterListViewDelegate: AnyObject {
     )
 }
 
-/// View that handles showing list of characters, loader, etc.
 final class RMCharacterListView: UIView {
 
     public weak var delegate: RMCharacterListViewDelegate?
@@ -43,8 +42,6 @@ final class RMCharacterListView: UIView {
                                 withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
-
-    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,7 +86,7 @@ extension RMCharacterListView: RMCharacterListViewViewModelDelegate {
     func didLoadInitialCharacters() {
         spinner.stopAnimating()
         collectionView.isHidden = false
-        collectionView.reloadData() // Initial fetch
+        collectionView.reloadData() 
         UIView.animate(withDuration: 0.4) {
             self.collectionView.alpha = 1
         }

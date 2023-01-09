@@ -38,8 +38,6 @@ final class RMLocationDetailView: UIView {
         return spinner
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -93,8 +91,6 @@ final class RMLocationDetailView: UIView {
                                 forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
         return collectionView
     }
-
-    // MARK: - Public
 
     public func configure(with viewModel: RMLocationDetailViewViewModel) {
         self.viewModel = viewModel

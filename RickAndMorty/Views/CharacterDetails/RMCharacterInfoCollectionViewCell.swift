@@ -40,8 +40,6 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
         return view
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .tertiarySystemBackground

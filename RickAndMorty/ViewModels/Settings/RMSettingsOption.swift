@@ -21,17 +21,17 @@ enum RMSettingsOption: CaseIterable {
         case .rateApp:
             return nil
         case .contactUs:
-            return URL(string: "https://iosacademy.io")
+            return URL(string: "https://www.linkedin.com/in/marcelodearaujo47/")
         case .terms:
-            return URL(string: "https://iosacademy.io/terms")
+            return URL(string: "https://github.com/AIWASS23/RickAndMorty/blob/main/CODE_OF_CONDUCT.md")
         case .privacy:
-            return URL(string: "https://iosacademy.io/privacy")
+            return URL(string: "https://github.com/AIWASS23/RickAndMorty/blob/main/LICENSE")
         case .apiReference:
             return URL(string: "https://rickandmortyapi.com/documentation/#get-a-single-episode")
         case .viewSeries:
-            return URL(string: "https://www.youtube.com/playlist?list=PL5PR3UyfTWvdl4Ya_2veOB6TM16FXuv4y")
+            return URL(string: "https://www.youtube.com/@adultswim/playlists")
         case .viewCode:
-            return URL(string: "https://github.com/AfrazCodes/RickAndMortyiOSApp")
+            return URL(string: "https://github.com/AIWASS23/RickAndMorty")
         }
     }
 

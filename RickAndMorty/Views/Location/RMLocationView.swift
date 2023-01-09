@@ -43,8 +43,6 @@ final class RMLocationView: UIView {
         return spinner
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground

@@ -35,8 +35,6 @@ final class RMSearchInputView: UIView {
 
     private var stackView: UIStackView?
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -47,8 +45,6 @@ final class RMSearchInputView: UIView {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
-    // MARK: - Private
 
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -121,8 +117,6 @@ final class RMSearchInputView: UIView {
         delegate?.rmSearchInputView(self, didSelectOption: selected)
     }
 
-    // MARK: - Public
-
     public func configure(with viewModel: RMSearchInputViewViewModel) {
         searchBar.placeholder = viewModel.searchPlaceholderText
         self.viewModel = viewModel
@@ -136,7 +130,6 @@ final class RMSearchInputView: UIView {
         option: RMSearchInputViewViewModel.DynamicOption,
         value: String
     ) {
-        // Update options
         guard let buttons = stackView?.arrangedSubviews as? [UIButton],
               let allOptions = viewModel?.options,
               let index = allOptions.firstIndex(of: option) else {

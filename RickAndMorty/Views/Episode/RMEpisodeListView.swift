@@ -14,7 +14,6 @@ protocol RMEpisodeListViewDelegate: AnyObject {
     )
 }
 
-/// View that handles showing list of episodes, loader, etc.
 final class RMEpisodeListView: UIView {
 
     public weak var delegate: RMEpisodeListViewDelegate?
@@ -43,8 +42,6 @@ final class RMEpisodeListView: UIView {
                                 withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
-
-    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)

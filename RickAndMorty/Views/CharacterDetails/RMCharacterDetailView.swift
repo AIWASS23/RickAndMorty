@@ -20,7 +20,6 @@ final class RMCharacterDetailView: UIView {
         return spinner
     }()
 
-    // MARK: - Init
 
     init(frame: CGRect, viewModel: RMCharacterDetailViewViewModel) {
         self.viewModel = viewModel

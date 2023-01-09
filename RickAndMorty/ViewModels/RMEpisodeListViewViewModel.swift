@@ -14,7 +14,6 @@ protocol RMEpisodeListViewViewModelDelegate: AnyObject {
     func didSelectEpisode(_ episode: RMEpisode)
 }
 
-/// View Model to handle episode list view logic
 final class RMEpisodeListViewViewModel: NSObject {
 
     public weak var delegate: RMEpisodeListViewViewModelDelegate?
@@ -51,7 +50,6 @@ final class RMEpisodeListViewViewModel: NSObject {
 
     private var apiInfo: RMGetAllEpisodesResponse.Info? = nil
 
-    /// Fetch initial set of episodes (20)
     public func fetchEpisodes() {
         RMService.shared.execute(
             .listEpisodesRequest,
@@ -72,7 +70,6 @@ final class RMEpisodeListViewViewModel: NSObject {
         }
     }
 
-    /// Paginate if additional episodes are needed
     public func fetchAdditionalEpisodes(url: URL) {
         guard !isLoadingMoreCharacters else {
             return
@@ -120,8 +117,6 @@ final class RMEpisodeListViewViewModel: NSObject {
         return apiInfo?.next != nil
     }
 }
-
-// MARK: - CollectionView
 
 extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
@@ -177,8 +172,6 @@ extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionVi
         delegate?.didSelectEpisode(selection)
     }
 }
-
-// MARK: - ScrollView
 
 extension RMEpisodeListViewViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

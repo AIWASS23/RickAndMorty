@@ -7,7 +7,6 @@
 
 import UIKit
 
-/// Single cell for a character
 final class RMCharacterCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "RMCharacterCollectionViewCell"
 
@@ -35,7 +34,6 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)

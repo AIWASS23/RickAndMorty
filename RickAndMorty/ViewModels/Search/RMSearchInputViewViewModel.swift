@@ -41,8 +41,6 @@ final class RMSearchInputViewViewModel {
         self.type = type
     }
 
-    // MARK: - Public
-
     public var hasDynamicOptions: Bool {
         switch self.type {
         case .character, .location:
