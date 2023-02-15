@@ -34,6 +34,6 @@ Este projeto está sob a licença (MIT) - veja o arquivo [LICENSE.md](https://gi
 
 ## 🎁 Expressões de gratidão
 
-* Agradeço ao projeto ADA pela oportunidade de aprendizado
+* Agradeço ao projeto ADA
 
 ⌨️ com ❤️ por [Marcelo De Araújo](https://gist.github.com/AIWASS23) 😊
