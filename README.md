@@ -1,5 +1,7 @@
 # RickAndMorty
 
+Construção de um Aplicativo usando uma API pública
+
 ## 🛠️ Construído com
 
 [Duck Duck Go](https://duckduckgo.com) <br>
