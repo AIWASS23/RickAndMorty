@@ -8,6 +8,7 @@
 import Foundation
 
 final class RMRequest {
+
     private struct Constants {
         static let baseUrl = "https://rickandmortyapi.com/api"
     }
@@ -65,7 +66,7 @@ final class RMRequest {
         if trimmed.contains("/") {
             let components = trimmed.components(separatedBy: "/")
             if !components.isEmpty {
-                let endpointString = components[0]
+                let endpointString = components[0] // Endpoint
                 var pathComponents: [String] = []
                 if components.count > 1 {
                     pathComponents = components

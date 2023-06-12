@@ -8,7 +8,8 @@
 import UIKit
 
 final class RMCharacterInfoCollectionViewCellViewModel {
-    private let type: Tipos
+    
+    private let type: `Type`
     private let value: String
 
     static let dateFormatter: DateFormatter = {
@@ -49,7 +50,7 @@ final class RMCharacterInfoCollectionViewCellViewModel {
         return type.tintColor
     }
 
-    enum Tipos: String {
+    enum `Type`: String {
         case status
         case gender
         case type
@@ -117,7 +118,7 @@ final class RMCharacterInfoCollectionViewCellViewModel {
         }
     }
 
-    init(type: Tipos, value: String) {
+    init(type: `Type`, value: String) {
         self.value = value
         self.type = type
     }

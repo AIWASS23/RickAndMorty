@@ -12,7 +12,6 @@ final class RMLocationDetailViewController: UIViewController, RMLocationDetailVi
     private let viewModel: RMLocationDetailViewViewModel
     private let detailView = RMLocationDetailView()
 
-
     init(location: RMLocation) {
         let url = URL(string: location.url)
         self.viewModel = RMLocationDetailViewViewModel(endpointUrl: url)
@@ -25,6 +24,7 @@ final class RMLocationDetailViewController: UIViewController, RMLocationDetailVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         view.addSubview(detailView)
         addConstraints()
         detailView.delegate = self

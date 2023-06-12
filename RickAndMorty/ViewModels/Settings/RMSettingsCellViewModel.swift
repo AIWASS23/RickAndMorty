@@ -30,4 +30,3 @@ struct RMSettingsCellViewModel: Identifiable {
         return type.iconContainerColor
     }
 }
-

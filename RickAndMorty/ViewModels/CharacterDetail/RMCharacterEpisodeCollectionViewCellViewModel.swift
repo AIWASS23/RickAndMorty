@@ -9,7 +9,7 @@ import UIKit
 
 protocol RMEpisodeDataRender {
     var name: String { get }
-    var airDate: String { get }
+    var air_date: String { get }
     var episode: String { get }
 }
 
@@ -73,6 +73,4 @@ final class RMCharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
     static func == (lhs: RMCharacterEpisodeCollectionViewCellViewModel, rhs: RMCharacterEpisodeCollectionViewCellViewModel) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
-
 }
-

@@ -71,4 +71,3 @@ final class RMEpisodeInfoCollectionViewCell: UICollectionViewCell {
         valueLabel.text = viewModel.value
     }
 }
-

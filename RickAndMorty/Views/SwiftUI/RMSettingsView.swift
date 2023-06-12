@@ -51,4 +51,3 @@ struct RMSettingsView_Previews: PreviewProvider {
         })))
     }
 }
-

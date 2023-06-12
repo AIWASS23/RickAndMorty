@@ -78,10 +78,9 @@ class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         viewModel.registerForData { [weak self] data in
             self?.nameLabel.text = data.name
             self?.seasonLabel.text = "Episode "+data.episode
-            self?.airDateLabel.text = "Aired on "+data.airDate
+            self?.airDateLabel.text = "Aired on "+data.air_date
         }
         viewModel.fetchEpisode()
         contentView.layer.borderColor = viewModel.borderColor.cgColor
     }
 }
-

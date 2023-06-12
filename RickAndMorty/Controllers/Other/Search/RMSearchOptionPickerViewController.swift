@@ -8,7 +8,7 @@
 import UIKit
 
 final class RMSearchOptionPickerViewController: UIViewController {
-
+    
     private let option: RMSearchInputViewViewModel.DynamicOption
     private let selectionBlock: ((String) -> Void)
 

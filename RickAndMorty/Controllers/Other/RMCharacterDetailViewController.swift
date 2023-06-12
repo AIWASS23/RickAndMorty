@@ -39,8 +39,7 @@ final class RMCharacterDetailViewController: UIViewController {
     }
 
     @objc
-    private func didTapShare() {
-    }
+    private func didTapShare() {}
 
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -69,9 +68,7 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
         }
     }
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let sectionType = viewModel.sections[indexPath.section]
         switch sectionType {
         case .photo(let viewModel):

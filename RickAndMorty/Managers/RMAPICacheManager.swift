@@ -62,8 +62,7 @@
 import Foundation
 
 final class RMAPICacheManager {
-
-    private var cacheDictionary: [RMEndpoint: NSCache<NSString, NSData>] = [:]
+    private var cacheDictionary: [ RMEndpoint: NSCache<NSString, NSData> ] = [:]
 
     init() {
         setUpCache()

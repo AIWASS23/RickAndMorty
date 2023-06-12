@@ -74,4 +74,3 @@ final class RMLocationTableViewCell: UITableViewCell {
         dimensionLabel.text = viewModel.dimension
     }
 }
-

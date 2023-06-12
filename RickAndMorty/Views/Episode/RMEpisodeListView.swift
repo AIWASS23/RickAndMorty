@@ -35,11 +35,14 @@ final class RMEpisodeListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(RMCharacterEpisodeCollectionViewCell.self,
-                                forCellWithReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifer)
-        collectionView.register(RMFooterLoadingCollectionReusableView.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                                withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier)
+        collectionView.register(
+            RMCharacterEpisodeCollectionViewCell.self,
+            forCellWithReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifer)
+        collectionView.register(
+            RMFooterLoadingCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier
+        )
         return collectionView
     }()
 
@@ -98,4 +101,3 @@ extension RMEpisodeListView: RMEpisodeListViewViewModelDelegate {
         delegate?.rmEpisodeListView(self, didSelectEpisode: episode)
     }
 }
-

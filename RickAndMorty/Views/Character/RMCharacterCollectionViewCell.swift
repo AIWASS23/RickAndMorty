@@ -34,7 +34,6 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
@@ -71,7 +70,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3)
+            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3),
         ])
     }
 
@@ -99,6 +98,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
                 }
             case .failure(let error):
                 print(String(describing: error))
+                break
             }
         }
     }

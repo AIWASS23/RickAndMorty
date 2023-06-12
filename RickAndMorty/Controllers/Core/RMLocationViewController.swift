@@ -12,7 +12,6 @@ final class RMLocationViewController: UIViewController, RMLocationViewViewModelD
     private let primaryView = RMLocationView()
     private let viewModel = RMLocationViewViewModel()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         primaryView.delegate = self

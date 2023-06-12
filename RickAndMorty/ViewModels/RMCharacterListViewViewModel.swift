@@ -59,6 +59,7 @@ final class RMCharacterListViewViewModel: NSObject {
         }
     }
 
+    /// Paginate if additional characters are needed
     public func fetchAdditionalCharacters(url: URL) {
         guard !isLoadingMoreCharacters else {
             return
@@ -68,7 +69,7 @@ final class RMCharacterListViewViewModel: NSObject {
             isLoadingMoreCharacters = false
             return
         }
-
+        
         RMService.shared.execute(request, expecting: RMGetAllCharactersResponse.self) { [weak self] result in
             guard let strongSelf = self else {
                 return
@@ -107,8 +108,8 @@ final class RMCharacterListViewViewModel: NSObject {
     }
 }
 
-extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-{
+
+extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModels.count
     }
@@ -142,13 +143,22 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollection
             return .zero
         }
 
-        return CGSize(width: collectionView.frame.width,
-                      height: 100)
+        return CGSize(
+            width: collectionView.frame.width,
+            height: 100
+        )
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width-30)/2
+
+        let bounds = collectionView.bounds
+        let width: CGFloat
+        if UIDevice.isiPhone {
+            width = (bounds.width-30)/2
+        } else {
+            width = (bounds.width-50)/4
+        }
+
         return CGSize(
             width: width,
             height: width * 1.5
@@ -171,7 +181,8 @@ extension RMCharacterListViewViewModel: UIScrollViewDelegate {
               let url = URL(string: nextUrlString) else {
             return
         }
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] time in
+
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] t in
             let offset = scrollView.contentOffset.y
             let totalContentHeight = scrollView.contentSize.height
             let totalScrollViewFixedHeight = scrollView.frame.size.height
@@ -179,8 +190,7 @@ extension RMCharacterListViewViewModel: UIScrollViewDelegate {
             if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
                 self?.fetchAdditionalCharacters(url: url)
             }
-            time.invalidate()
+            t.invalidate()
         }
     }
 }
-

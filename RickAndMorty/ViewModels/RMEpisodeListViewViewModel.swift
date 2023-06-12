@@ -118,8 +118,7 @@ final class RMEpisodeListViewViewModel: NSObject {
     }
 }
 
-extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-{
+extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModels.count
     }
@@ -182,7 +181,8 @@ extension RMEpisodeListViewViewModel: UIScrollViewDelegate {
               let url = URL(string: nextUrlString) else {
             return
         }
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] time in
+
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] t in
             let offset = scrollView.contentOffset.y
             let totalContentHeight = scrollView.contentSize.height
             let totalScrollViewFixedHeight = scrollView.frame.size.height
@@ -190,7 +190,7 @@ extension RMEpisodeListViewViewModel: UIScrollViewDelegate {
             if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
                 self?.fetchAdditionalEpisodes(url: url)
             }
-            time.invalidate()
+            t.invalidate()
         }
     }
 }

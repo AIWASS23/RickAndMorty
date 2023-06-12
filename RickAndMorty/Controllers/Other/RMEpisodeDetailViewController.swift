@@ -8,7 +8,7 @@
 import UIKit
 
 final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate, RMEpisodeDetailViewDelegate {
-
+    
     private let viewModel: RMEpisodeDetailViewViewModel
     private let detailView = RMEpisodeDetailView()
 
@@ -23,6 +23,7 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         view.addSubview(detailView)
         addConstraints()
         detailView.delegate = self

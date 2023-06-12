@@ -9,10 +9,10 @@ import UIKit
 
 final class RMSearchViewController: UIViewController {
     struct Config {
-        enum Tipos {
-            case character
-            case episode
-            case location
+        enum `Type` {
+            case character 
+            case episode 
+            case location 
 
             var endpoint: RMEndpoint {
                 switch self {
@@ -34,7 +34,7 @@ final class RMSearchViewController: UIViewController {
             }
         }
 
-        let type: Tipos
+        let type: `Type`
     }
 
     private let viewModel: RMSearchViewViewModel
@@ -96,6 +96,24 @@ extension RMSearchViewController: RMSearchViewDelegate {
         vc.sheetPresentationController?.detents = [.medium()]
         vc.sheetPresentationController?.prefersGrabberVisible = true
         present(vc, animated: true)
+    }
+
+    func rmSearchView(_ searchView: RMSearchView, didSelectLocation location: RMLocation) {
+        let vc = RMLocationDetailViewController(location: location)
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func rmSearchView(_ searchView: RMSearchView, didSelectCharacter character: RMCharacter) {
+        let vc = RMCharacterDetailViewController(viewModel: .init(character: character))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func rmSearchView(_ searchView: RMSearchView, didSelectEpisode episode: RMEpisode) {
+        let vc = RMEpisodeDetailViewController(url: URL(string: episode.url))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

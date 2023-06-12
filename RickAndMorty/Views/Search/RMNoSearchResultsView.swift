@@ -59,4 +59,3 @@ final class RMNoSearchResultsView: UIView {
         iconView.image = viewModel.image
     }
 }
-

@@ -8,6 +8,7 @@
 import Foundation
 
 final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
+    
     public let characterName: String
     private let characterStatus: RMCharacterStatus
     private let characterImageUrl: URL?
@@ -34,9 +35,7 @@ final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
         RMImageLoader.shared.downloadImage(url, completion: completion)
     }
 
-    static func == (
-        lhs: RMCharacterCollectionViewCellViewModel,
-        rhs: RMCharacterCollectionViewCellViewModel) -> Bool {
+    static func == (lhs: RMCharacterCollectionViewCellViewModel, rhs: RMCharacterCollectionViewCellViewModel) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
 

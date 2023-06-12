@@ -15,6 +15,11 @@ extension UIView {
     }
 }
 
+extension UIDevice {
+    static let isiPhone = UIDevice.current.userInterfaceIdiom == .phone
+}
+
+
 /*
     A extensão adiciona uma nova função à classe UIView chamada "addSubviews" 
     que permite adicionar várias subviews ao mesmo tempo. A função é chamada passando 

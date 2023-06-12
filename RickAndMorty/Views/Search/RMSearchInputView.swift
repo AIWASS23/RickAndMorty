@@ -8,8 +8,15 @@
 import UIKit
 
 protocol RMSearchInputViewDelegate: AnyObject {
-    func rmSearchInputView(_ inputView: RMSearchInputView,
-                           didSelectOption option: RMSearchInputViewViewModel.DynamicOption)
+    func rmSearchInputView(
+        _ inputView: RMSearchInputView, didSelectOption 
+        option: RMSearchInputViewViewModel.DynamicOption
+    )
+    func rmSearchInputView(
+        _ inputView: RMSearchInputView, didChangeSearchText 
+        text: String
+    )
+    func rmSearchInputViewDidTapSearchKeyboardButton(_ inputView: RMSearchInputView)
 }
 
 final class RMSearchInputView: UIView {
@@ -40,6 +47,8 @@ final class RMSearchInputView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(searchBar)
         addConstraints()
+
+        searchBar.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -77,9 +86,9 @@ final class RMSearchInputView: UIView {
     private func createOptionSelectionViews(options: [RMSearchInputViewViewModel.DynamicOption]) {
         let stackView = createOptionStackView()
         self.stackView = stackView
-        for opition in 0..<options.count {
-            let option = options[opition]
-            let button = createButton(with: option, tag: opition)
+        for x in 0..<options.count {
+            let option = options[x]
+            let button = createButton(with: option, tag: x)
             stackView.addArrangedSubview(button)
         }
     }
@@ -149,3 +158,13 @@ final class RMSearchInputView: UIView {
     }
 }
 
+extension RMSearchInputView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        delegate?.rmSearchInputView(self, didChangeSearchText: searchText)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        delegate?.rmSearchInputViewDidTapSearchKeyboardButton(self)
+    }
+}

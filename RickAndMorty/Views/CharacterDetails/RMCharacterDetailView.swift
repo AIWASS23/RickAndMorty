@@ -20,7 +20,6 @@ final class RMCharacterDetailView: UIView {
         return spinner
     }()
 
-
     init(frame: CGRect, viewModel: RMCharacterDetailViewViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -50,7 +49,7 @@ final class RMCharacterDetailView: UIView {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
@@ -59,16 +58,19 @@ final class RMCharacterDetailView: UIView {
             return self.createSection(for: sectionIndex)
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(
-            RMCharacterPhotoCollectionViewCell.self,forCellWithReuseIdentifier:
-                RMCharacterPhotoCollectionViewCell.cellIdentifer)
 
         collectionView.register(
-            RMCharacterInfoCollectionViewCell.self,forCellWithReuseIdentifier:  RMCharacterInfoCollectionViewCell.cellIdentifer)
-
+            RMCharacterPhotoCollectionViewCell.self,
+            forCellWithReuseIdentifier: RMCharacterPhotoCollectionViewCell.cellIdentifer
+        )
         collectionView.register(
-            RMCharacterEpisodeCollectionViewCell.self,forCellWithReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifer)
-
+            RMCharacterInfoCollectionViewCell.self,
+            forCellWithReuseIdentifier: RMCharacterInfoCollectionViewCell.cellIdentifer
+        )
+        collectionView.register(
+            RMCharacterEpisodeCollectionViewCell.self,
+            forCellWithReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifer
+        )
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }

@@ -40,8 +40,6 @@ final class RMEpisodeDetailViewViewModel {
         return dataTuple.characters[index]
     }
 
-    // MARK: - Private
-
     private func createCellViewModels() {
         guard let dataTuple = dataTuple else {
             return
@@ -58,7 +56,7 @@ final class RMEpisodeDetailViewViewModel {
         cellViewModels = [
             .information(viewModels: [
                 .init(title: "Episode Name", value: episode.name),
-                .init(title: "Air Date", value: episode.airDate),
+                .init(title: "Air Date", value: episode.air_date),
                 .init(title: "Episode", value: episode.episode),
                 .init(title: "Created", value: createdString),
             ]),
@@ -72,7 +70,6 @@ final class RMEpisodeDetailViewViewModel {
         ]
     }
 
-    /// Fetch backing episode model
     public func fetchEpisodeData() {
         guard let url = endpointUrl,
               let request = RMRequest(url: url) else {
@@ -96,9 +93,6 @@ final class RMEpisodeDetailViewViewModel {
         }).compactMap({
             return RMRequest(url: $0)
         })
-
-        // 10 of parallel requests
-        // Notified once all done
 
         let group = DispatchGroup()
         var characters: [RMCharacter] = []
