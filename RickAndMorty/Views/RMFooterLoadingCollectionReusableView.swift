@@ -41,3 +41,21 @@ final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
         spinner.startAnimating()
     }
 }
+
+/*
+    RMFooterLoadingCollectionReusableView, que é um tipo de "visualização de coleção reciclável"
+    para o iOS. Isso é usado para exibir um spinner (indicador de atividade) na parte inferior de uma
+    coleção (por exemplo, uma lista de itens) quando mais itens estão sendo carregados.
+
+    A classe tem uma propriedade interna chamada spinner, que é uma instância de UIActivityIndicatorView
+    (um componente da interface do usuário fornecido pelo iOS que exibe um spinner). A classe também tem
+    uma função chamada startAnimating() que inicia a animação do spinner.
+
+    Quando a classe é inicializada, ela configura a cor de fundo da visualização para o sistema padrão,
+    adiciona o spinner como uma subvisualização e define algumas restrições de layout para centralizar o
+    spinner na visualização.
+
+
+
+*/
+
